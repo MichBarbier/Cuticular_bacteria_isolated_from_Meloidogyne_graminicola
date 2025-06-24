@@ -1,0 +1,1 @@
+# Cuticular_bacteria_isolated_from_Meloidogyne_graminicola
