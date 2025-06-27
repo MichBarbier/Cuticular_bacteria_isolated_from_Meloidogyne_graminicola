@@ -1,0 +1,80 @@
+################################################
+# This script allows to reproduce the Figure 4 #
+
+
+setwd(C:/[[YOUR PATH]]/Cuticular_bacteria_isolated_from_Meloidogyne_graminicola)
+
+
+######## Libraries
+library(ggsignif)
+library(patchwork)
+library(tidyverse)
+
+
+######## Figure_4
+Data <- read.csv("Data/Nematicidal effect - Filtered supernatant.csv", dec = ".", sep = ";", header = TRUE)
+
+Acineto <- Data[c(grep("Physio", Data[,"Bacteria"]), grep("Acineto", Data[,"Bacteria"])),]
+Acineto[grep("Filtered", Acineto[,"Bacteria"]), "Bacteria"] <- "Filtered supernatant"
+Acineto[grep("Acineto", Acineto[,"Bacteria"]), "Bacteria"] <- "Bacterial suspension"
+
+Agro <- Data[c(grep("Physio", Data[,"Bacteria"]), grep("Agrobact", Data[,"Bacteria"])),]
+Agro[grep("Filtered", Agro[,"Bacteria"]), "Bacteria"] <- "Filtered supernatant"
+Agro[grep("Agro", Agro[,"Bacteria"]), "Bacteria"] <- "Bacterial suspension"
+
+Paeni <- Data[c(grep("Physio", Data[,"Bacteria"]), grep("Paeni", Data[,"Bacteria"])),]
+Paeni[grep("Filtered", Paeni[,"Bacteria"]), "Bacteria"] <- "Filtered supernatant"
+Paeni[grep("Paeni", Paeni[,"Bacteria"]), "Bacteria"] <- "Bacterial suspension"
+
+Fills <- c("grey25", "grey75", "white")
+
+Paenibacillus <- expression(paste(italic("Paenibacillus"), " CT02"))
+Agrobacterium <- expression(paste(italic("Agrobacterium"), " CA06"))
+Acinetobacter <- expression(paste(italic("Acinetobacter"), " CA01"))
+
+p1 <- ggplot(Paeni)+
+  geom_boxplot(aes(x = Bacteria, y = Percentage_of_crossed_J2s, fill = Bacteria), color = "black", alpha = 0.65)+
+  scale_fill_manual("Bacteria", values = Fills, name = "")+
+  geom_signif(aes(x = Bacteria, y = Percentage_of_crossed_J2s), test = wilcox.test, comparisons = list(c("Physiological water", "Filtered supernatant"), c("Filtered supernatant", "Bacterial suspension"), c("Physiological water", "Bacterial suspension")), map_signif_level = TRUE, y_position = c(110, 115, 125), textsize = 5)+
+  geom_point(aes(x = Bacteria, y = Percentage_of_crossed_J2s))+
+  stat_summary(aes(x = Bacteria, y = Percentage_of_crossed_J2s), fun = mean, colour = "black",  geom = "point", shape = 3, size = 2)+
+  ylab("Percentage of crossed larvae")+
+  scale_y_continuous(breaks = seq(0, 150, 25))+
+  ylim(0,150)+
+  ggtitle(Paenibacillus)+
+  theme_bw()+
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_text(size = 12), axis.title.y = element_text(size = 13), plot.title = element_text(hjust = 0.5))
+p1
+
+p2 <- ggplot(Agro)+
+  geom_boxplot(aes(x = Bacteria, y = Percentage_of_crossed_J2s, fill = Bacteria), color = "black", alpha = 0.65)+
+  scale_fill_manual("Bacteria", values = Fills, name = "")+
+  geom_signif(aes(x = Bacteria, y = Percentage_of_crossed_J2s), test = wilcox.test, comparisons = list(c("Physiological water", "Filtered supernatant"), c("Filtered supernatant", "Bacterial suspension"), c("Physiological water", "Bacterial suspension")), map_signif_level = TRUE, y_position = c(110, 115, 125), textsize = 5)+
+  geom_point(aes(x = Bacteria, y = Percentage_of_crossed_J2s))+
+  stat_summary(aes(x = Bacteria, y = Percentage_of_crossed_J2s), fun = mean, colour = "black",  geom = "point", shape = 3, size = 2)+
+  ylab("Percentage of crossed larvae")+
+  scale_y_continuous(breaks = seq(0, 150, 25))+
+  ylim(0,150)+
+  ggtitle(Agrobacterium)+
+  theme_bw()+
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.title.y = element_blank(), axis.ticks.y = element_blank(), plot.title = element_text(hjust = 0.5))
+p2
+
+p3 <- ggplot(Acineto)+
+  geom_boxplot(aes(x = Bacteria, y = Percentage_of_crossed_J2s, fill = Bacteria), color = "black", alpha = 0.65)+
+  scale_fill_manual("Bacteria", values = Fills, name = "")+
+  geom_signif(aes(x = Bacteria, y = Percentage_of_crossed_J2s), test = wilcox.test, comparisons = list(c("Physiological water", "Filtered supernatant"), c("Filtered supernatant", "Bacterial suspension"), c("Physiological water", "Bacterial suspension")), map_signif_level = TRUE, y_position = c(110, 115, 125), textsize = 5)+
+  geom_point(aes(x = Bacteria, y = Percentage_of_crossed_J2s))+
+  stat_summary(aes(x = Bacteria, y = Percentage_of_crossed_J2s), fun = mean, colour = "black",  geom = "point", shape = 3, size = 2)+
+  ylab("Percentage of crossed larvae")+
+  scale_y_continuous(breaks = seq(0, 150, 25))+
+  ylim(0,150)+
+  ggtitle(Acinetobacter)+
+  theme_bw()+
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.title.y = element_blank(), axis.ticks.y = element_blank(), plot.title = element_text(hjust = 0.5))
+p3
+
+p10 <- p1 + p2 + p3 + plot_layout(guides = "collect")
+p10
+
+ggsave(plot = p10, dpi = 1000, device = "jpeg", width = 8, height = 4, filename = "Results/Figure_4.jpeg")
