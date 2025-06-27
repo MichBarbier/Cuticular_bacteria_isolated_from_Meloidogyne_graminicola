@@ -12,7 +12,7 @@ library(tidyverse)
 
 
 ######## Figure_4
-Data <- read.csv("Data/Nematicidal effect - Filtered supernatant.csv", dec = ".", sep = ";", header = TRUE)
+Data <- read.csv("Data/Nematicidal effect - Filtered supernatant.csv", dec = ".", sep = ",", header = TRUE)
 
 Acineto <- Data[c(grep("Physio", Data[,"Bacteria"]), grep("Acineto", Data[,"Bacteria"])),]
 Acineto[grep("Filtered", Acineto[,"Bacteria"]), "Bacteria"] <- "Filtered supernatant"
