@@ -7,7 +7,7 @@ setwd(C:/[[YOUR PATH]]/Cuticular_bacteria_isolated_from_Meloidogyne_graminicola)
 library(ggsignif) 
 library(tidyverse)
 
-Data <- read.csv("Data/Soil_antagonism.csv", sep = ";", dec = ".", header = TRUE)
+Data <- read.csv("Data/Soil_antagonism.csv", sep = ",", dec = ".", header = TRUE)
 
 Data[,"Samples"] <- gsub("^CT_F", "CT F", Data[,"Samples"])
 Data[,"Samples"] <- gsub("^CA_F", "CA F", Data[,"Samples"])
