@@ -1,0 +1,112 @@
+########################################################
+# This script allows to reproduce the Figure 3A and 3B #
+
+
+setwd(C:/[[YOUR PATH]]/Cuticular_bacteria_isolated_from_Meloidogyne_graminicola)
+
+
+######## Libraries
+library(multcompView)
+library(patchwork)
+library(tidyverse)
+library(wesanderson)
+
+
+#### Create a function to determine the statistical groups based on the p-values
+tri.to.squ <- function(x)
+{
+  rn <- row.names(x)
+  cn <- colnames(x)
+  an <- unique(c(cn,rn))
+  myval <-  x[!is.na(x)]
+  mymat <-  matrix(1, nrow = length(an), ncol = length(an), dimnames = list(an,an))
+  for(ext in 1:length(cn))
+  {
+    for(int in 1:length(rn))
+    {
+      if(is.na(x[row.names(x) == rn[int], colnames(x) == cn[ext]])) next
+      mymat[row.names(mymat) == rn[int], colnames(mymat) == cn[ext]] <- x[row.names(x) == rn[int], colnames(x) == cn[ext]]
+      mymat[row.names(mymat) == cn[ext], colnames(mymat) == rn[int]] <- x[row.names(x) == rn[int], colnames(x) == cn[ext]]
+    }
+  }
+  return(mymat)
+}
+
+
+######## All genus
+Data <- read.csv("Data/Nematicidal effect - All genus.csv", dec = ".", sep = ";", header = TRUE)
+
+# Compare the percentage of mobility between samples with a Wilcoxon-Mann-Whitney test with an adjustment of p-value using a FDR method
+Stat <- pairwise.wilcox.test(Data$Percent_of_crossed_J2s, Data$Bacteria, p.adjust.method = "fdr")
+
+# Determines the statistical groups
+Mymat <- tri.to.squ(Stat$p.value)
+
+Letters <- multcompLetters(Mymat, compare = "<=", threshold = 0.05, Letters = letters)
+Letters <- data.frame(group = names(Letters$Letters), letter = Letters$Letters)
+
+# Colors
+# The colours are from the wesanderson packages
+Colors <- c("#3A9AB2", "black", "#59A8BA", "#75B3BF", "#89B8B8", "#98BCAF", "#A3C1A4", "#B1C591", "#C0C87B", "#D2CA5D", "#DEC53B", "#E2B917", "#E4A80A", "#E79605", "#EA8405", "#EC7104", "#EE5D03", "#EF3E01", "#F11B00")
+Fills <- c("#3A9AB2", "white", "#59A8BA", "#75B3BF", "#89B8B8", "#98BCAF", "#A3C1A4", "#B1C591", "#C0C87B", "#D2CA5D", "#DEC53B", "#E2B917", "#E4A80A", "#E79605", "#EA8405", "#EC7104", "#EE5D03", "#EF3E01", "#F11B00")
+
+# Figure 3A
+p1 <- ggplot(Data)+
+  geom_boxplot(aes(reorder(Bacteria, - Percent_of_crossed_J2s, mean), y = Percent_of_crossed_J2s, color = reorder(Bacteria, - Percent_of_crossed_J2s, mean), fill = reorder(Bacteria, - Percent_of_crossed_J2s, mean), alpha = 0.1))+
+  scale_color_manual("Bacteria", values = Colors, guide = "none")+
+  scale_fill_manual("Bacteria", values = Fills, guide = "none")+
+  geom_point(aes(x = Bacteria, y = Percent_of_crossed_J2s, color = reorder(Bacteria, - Percent_of_crossed_J2s, mean)))+
+  scale_color_manual("Soil", values = Colors, guide = "none")+
+  stat_summary(aes(x = Bacteria, y = Percent_of_crossed_J2s), fun = mean, colour = "black", geom = "point", shape = 3, size = 2)+
+  geom_text(data = Letters, aes(label = letter, y = 125, x = group), colour = "black", size = 4)+
+  ylab("Percentage of crossed larvae")+
+  scale_y_continuous(breaks = seq(0, 150, 25))+
+  ggtitle("A)")+
+  xlab("")+
+  guides(alpha = FALSE)+
+  theme_bw()+
+  theme(axis.text.x = element_text(size = 10, color = "black", angle = 30, hjust = 1), axis.text.y = element_text(size = 12), axis.title.y = element_text(size = 12), plot.title = element_text(face = "bold", hjust = -0.05))
+p1
+
+
+######## Agrobacterium
+Data <- read.csv("Data/Nematicidal effect - Agrobacterium.csv", dec = ".", sep = ";", header = TRUE)
+
+Stat <- pairwise.wilcox.test(Data$Percent_of_crossed_J2s, Data$Bacteria, p.adjust.method = "fdr")
+
+# Determines the statistical groups
+Mymat <- tri.to.squ(Stat$p.value)
+
+Letters <- multcompLetters(Mymat, compare = "<=", threshold = 0.05, Letters = letters)
+Letters <- data.frame(group = names(Letters$Letters), letter = Letters$Letters)
+
+# Colors
+Colors <- c("black", wes_palette("Zissou1", 5, type = "continuous"))
+Fills <- c("white", wes_palette("Zissou1", 5, type = "continuous"))
+
+## Plots the boxplots
+p2 <- ggplot(Data)+
+  geom_boxplot(aes(reorder(Bacteria, - Percent_of_crossed_J2s, mean), y = Percent_of_crossed_J2s, color = reorder(Bacteria, - Percent_of_crossed_J2s, mean), fill = reorder(Bacteria, - Percent_of_crossed_J2s, mean), alpha = 0.1))+
+  scale_color_manual("Bacteria", values = Colors, guide = "none")+
+  scale_fill_manual("Bacteria", values = Fills, guide = "none")+
+  geom_point(aes(x = Bacteria, y = Percent_of_crossed_J2s, color = reorder(Bacteria, - Percent_of_crossed_J2s, mean)))+
+  scale_color_manual("Soil", values = Colors, guide = "none")+
+  stat_summary(aes(x = Bacteria, y = Percent_of_crossed_J2s), fun = mean, colour = "black", geom = "point", shape = 3, size = 2)+
+  geom_text(data = Letters, aes(label = letter, y = 125, x = group), colour = "black", size = 4)+
+  ylab("Percentage of crossed larvae")+
+  scale_y_continuous(breaks = seq(0, 150, 25))+
+  ggtitle("B)")+
+  xlab("")+
+  guides(alpha = FALSE)+
+  theme_bw()+
+  theme(axis.text.x = element_text(size = 10, color = "black", angle = 30, hjust = 1), axis.text.y = element_blank(), axis.title.y = element_blank(), axis.ticks.y = element_blank(), plot.title = element_text(face = "bold", hjust = -0.05))
+p2
+
+
+######## Figure 3
+Model <- "AAB"
+
+p10 <- p1 + p2 + plot_layout(design = Model)
+p10
+
+ggsave(plot = p10, dpi = 1000, device = "jpeg", width = 13, height = 6, filename = "Results/Figure_3.jpeg")
