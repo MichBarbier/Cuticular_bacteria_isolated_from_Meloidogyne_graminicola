@@ -34,7 +34,7 @@ tri.to.squ <- function(x)
 
 
 ######## All genus
-Data <- read.csv("Data/Nematicidal effect - All genus.csv", dec = ".", sep = ";", header = TRUE)
+Data <- read.csv("Data/Nematicidal effect - All genus.csv", dec = ".", sep = ".", header = TRUE)
 
 # Compare the percentage of mobility between samples with a Wilcoxon-Mann-Whitney test with an adjustment of p-value using a FDR method
 Stat <- pairwise.wilcox.test(Data$Percent_of_crossed_J2s, Data$Bacteria, p.adjust.method = "fdr")
@@ -70,7 +70,7 @@ p1
 
 
 ######## Agrobacterium
-Data <- read.csv("Data/Nematicidal effect - Agrobacterium.csv", dec = ".", sep = ";", header = TRUE)
+Data <- read.csv("Data/Nematicidal effect - Agrobacterium.csv", dec = ".", sep = ",", header = TRUE)
 
 Stat <- pairwise.wilcox.test(Data$Percent_of_crossed_J2s, Data$Bacteria, p.adjust.method = "fdr")
 
