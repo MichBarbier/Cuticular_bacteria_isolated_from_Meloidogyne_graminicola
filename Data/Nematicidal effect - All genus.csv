@@ -1,14 +1,14 @@
 Bacteria,Percent_of_crossed_J2s
 Physiological water,56.25
 Physiological water,99.875
-Sphingomonas Physiological water06,32.8125
-Sphingomonas Physiological water06,6.75
-Rothia Physiological water01,63
-Rothia Physiological water01,60.125
-Priestia Physiological water03,29.25
-Priestia Physiological water03,39.3125
-Microbacterium Physiological water04,27.75
-Microbacterium Physiological water04,32.8125
+Sphingomonas CTRL06,32.8125
+Sphingomonas CTRL06,6.75
+Rothia CTRL01,63
+Rothia CTRL01,60.125
+Priestia CTRL03,29.25
+Priestia CTRL03,39.3125
+Microbacterium PCTRL04,27.75
+Microbacterium CTRL04,32.8125
 Micrococcus CA05,32.9375
 Micrococcus CA05,15.3125
 Acinetobacter CA01,14.875
@@ -23,14 +23,14 @@ Burkholderia CT03,42.75
 Burkholderia CT03,13.875
 Physiological water,81.04651163
 Physiological water,86.97674419
-Sphingomonas Physiological water06,43.95348837
-Sphingomonas Physiological water06,47.44186047
-Rothia Physiological water01,83.95348837
-Rothia Physiological water01,94.88372093
-Priestia Physiological water03,60
-Priestia Physiological water03,54.41860465
-Microbacterium Physiological water04,79.76744186
-Microbacterium Physiological water04,81.97674419
+Sphingomonas CTRL06,43.95348837
+Sphingomonas PCTRL06,47.44186047
+Rothia CTRL01,83.95348837
+Rothia CTRL01,94.88372093
+Priestia CTRL03,60
+Priestia CTRL03,54.41860465
+Microbacterium CTRL04,79.76744186
+Microbacterium CTRL04,81.97674419
 Methylobacterium CA03,99.76744186
 Methylobacterium CA03,106.9767442
 Methylobacterium CA03,76.51162791
@@ -51,14 +51,14 @@ Bosea CT05,68.8372093
 Bosea CT05,87.44186047
 Physiological water,76.62162162
 Physiological water,70.27027027
-Sphingomonas Physiological water06,2.702702703
-Sphingomonas Physiological water06,2.702702703
-Rothia Physiological water01,90
-Rothia Physiological water01,59.45945946
-Priestia Physiological water03,48.78378378
-Priestia Physiological water03,39.72972973
-Microbacterium Physiological water04,100
-Microbacterium Physiological water04,51.08108108
+Sphingomonas CTRL06,2.702702703
+Sphingomonas CTRL06,2.702702703
+Rothia CTRL01,90
+Rothia CTRL01,59.45945946
+Priestia CTRL03,48.78378378
+Priestia CTRL03,39.72972973
+Microbacterium CTRL04,100
+Microbacterium CTRL04,51.08108108
 Methylobacterium CA03,64.86486486
 Methylobacterium CA03,59.59459459
 Methylobacterium CA03,74.45945946
@@ -79,18 +79,18 @@ Bosea CT05,72.97297297
 Bosea CT05,54.05405405
 Physiological water,70
 Physiological water,74.66666667
-Sphingomonas Physiological water06,44
-Sphingomonas Physiological water06,34.66666667
-Sphingomonas Physiological water06,8
-Rothia Physiological water01,26.66666667
-Rothia Physiological water01,64
-Rothia Physiological water01,40.53333333
-Priestia Physiological water03,28
-Priestia Physiological water03,26.66666667
-Priestia Physiological water03,26.66666667
-Microbacterium Physiological water04,30.66666667
-Microbacterium Physiological water04,16
-Microbacterium Physiological water04,22.4
+Sphingomonas CTRL06,44
+Sphingomonas CTRL06,34.66666667
+Sphingomonas CTRL06,8
+Rothia CTRL01,26.66666667
+Rothia CTRL01,64
+Rothia CTRL01,40.53333333
+Priestia CTRL03,28
+Priestia CTRL03,26.66666667
+Priestia CTRL03,26.66666667
+Microbacterium CTRL04,30.66666667
+Microbacterium CTRL04,16
+Microbacterium CTRL04,22.4
 Methylobacterium CA03,17.6
 Methylobacterium CA03,73.33333333
 Methylobacterium CA03,44.8
