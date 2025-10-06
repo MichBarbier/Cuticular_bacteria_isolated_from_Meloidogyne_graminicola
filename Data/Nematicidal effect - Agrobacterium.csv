@@ -1,15 +1,15 @@
 Bacteria,Percent_of_crossed_J2s
-Physiological water,81.04651163
-Physiological water,86.97674419
+Saline solution,81.04651163
+Saline solution,86.97674419
 Agrobacterium CT08,15.69767442
 Agrobacterium CT08,9.302325581
 Agrobacterium CT08,59.30232558
 Agrobacterium CT09,45.58139535
 Agrobacterium CT09,14.65116279
 Agrobacterium CT09,43.60465116
-Physiological water,76.62162162
-Physiological water,70.27027027
-Physiological water,72.97297297
+Saline solution,76.62162162
+Saline solution,70.27027027
+Saline solution,72.97297297
 Agrobacterium CT08,0
 Agrobacterium CT08,0
 Agrobacterium CT08,2.702702703
@@ -25,8 +25,8 @@ Agrobacterium CT07,0
 Agrobacterium CT10,5.405405405
 Agrobacterium CT10,5.405405405
 Agrobacterium CT10,16.21621622
-Physiological water,70
-Physiological water,74.66666667
+Saline solution,70
+Saline solution,74.66666667
 Agrobacterium CT08,0
 Agrobacterium CT08,26.66666667
 Agrobacterium CT08,2.8
@@ -42,8 +42,8 @@ Agrobacterium CT07,22.4
 Agrobacterium CT10,26.66666667
 Agrobacterium CT10,0
 Agrobacterium CT10,18.66666667
-Physiological water,71.4
-Physiological water,55.2
+Saline solution,71.4
+Saline solution,55.2
 Agrobacterium CT06,0
 Agrobacterium CT06,0
 Agrobacterium CT06,0
@@ -53,3 +53,4 @@ Agrobacterium CT07,8
 Agrobacterium CT10,4
 Agrobacterium CT10,25.2
 Agrobacterium CT10,17.6
+
