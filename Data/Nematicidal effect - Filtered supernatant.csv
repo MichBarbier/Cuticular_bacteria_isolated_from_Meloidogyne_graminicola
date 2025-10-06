@@ -1,7 +1,7 @@
 Bacteria,Percentage_of_crossed_J2s
-Physiological water,69.0
-Physiological water,79.4
-Physiological water,72.1
+Saline solution,69.0
+Saline solution,79.4
+Saline solution,72.1
 Acinetobacter CA01,1.0
 Acinetobacter CA01,3.2
 Acinetobacter CA01,10.8
@@ -20,9 +20,9 @@ Agrobacterium CT06 - Filtered,75.1
 Paenibacillus CT02 - Filtered,71.6
 Paenibacillus CT02 - Filtered,82.0
 Paenibacillus CT02 - Filtered,86.5
-Physiological water,74.7
-Physiological water,44.0
-Physiological water,53.7
+Saline solution,74.7
+Saline solution,44.0
+Saline solution,53.7
 Acinetobacter CA01,26.7
 Acinetobacter CA01,4.9
 Acinetobacter CA01,4.4
@@ -41,9 +41,9 @@ Agrobacterium CT06 - Filtered,66.0
 Paenibacillus CT02 - Filtered,106.7
 Paenibacillus CT02 - Filtered,100.3
 Paenibacillus CT02 - Filtered,64.4
-Physiological water,78.9
-Physiological water,80.0
-Physiological water,81.5
+Saline solution,78.9
+Saline solution,80.0
+Saline solution,81.5
 Acinetobacter CA01,1.2
 Acinetobacter CA01,4.0
 Acinetobacter CA01,1.4
@@ -62,3 +62,4 @@ Agrobacterium CT06 - Filtered,90.7
 Paenibacillus CT02 - Filtered,77.3
 Paenibacillus CT02 - Filtered,94.2
 Paenibacillus CT02 - Filtered,94.7
+
