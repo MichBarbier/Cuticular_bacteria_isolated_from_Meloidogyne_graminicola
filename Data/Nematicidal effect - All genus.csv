@@ -1,6 +1,6 @@
 Bacteria,Percent_of_crossed_J2s
-Physiological water,56.25
-Physiological water,99.875
+Saline solution,56.25
+Saline solution,99.875
 Sphingomonas CTRL06,32.8125
 Sphingomonas CTRL06,6.75
 Rothia CTRL01,63
@@ -21,8 +21,8 @@ Paenibacillus CT02,84.5625
 Paenibacillus CT02,66
 Burkholderia CT03,42.75
 Burkholderia CT03,13.875
-Physiological water,81.04651163
-Physiological water,86.97674419
+Saline solution,81.04651163
+Saline solution,86.97674419
 Sphingomonas CTRL06,43.95348837
 Sphingomonas PCTRL06,47.44186047
 Rothia CTRL01,83.95348837
@@ -49,8 +49,8 @@ Burkholderia CT03,28.72093023
 Bosea CT05,98.8372093
 Bosea CT05,68.8372093
 Bosea CT05,87.44186047
-Physiological water,76.62162162
-Physiological water,70.27027027
+Saline solution,76.62162162
+Saline solution,70.27027027
 Sphingomonas CTRL06,2.702702703
 Sphingomonas CTRL06,2.702702703
 Rothia CTRL01,90
@@ -77,8 +77,8 @@ Agrobacterium CT06,0
 Bosea CT05,83.78378378
 Bosea CT05,72.97297297
 Bosea CT05,54.05405405
-Physiological water,70
-Physiological water,74.66666667
+Saline solution,70
+Saline solution,74.66666667
 Sphingomonas CTRL06,44
 Sphingomonas CTRL06,34.66666667
 Sphingomonas CTRL06,8
@@ -118,10 +118,11 @@ Agrobacterium CT06,0
 Bosea CT05,29.33333333
 Bosea CT05,42.66666667
 Bosea CT05,74.66666667
-Physiological water,71.4
+Saline solution,71.4
 Paenibacillus CT02,75.6
 Paenibacillus CT02,84
 Paenibacillus CT02,54.6
 Agrobacterium CT06,0
 Agrobacterium CT06,0
 Agrobacterium CT06,0
+
